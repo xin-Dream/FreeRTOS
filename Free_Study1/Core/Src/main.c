@@ -232,7 +232,7 @@ void Func_LED0(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-    osDelay(500);
+    osDelay(1000);
     HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_RESET);
     osDelay(500);
     HAL_GPIO_WritePin(LED0_GPIO_Port,LED0_Pin,GPIO_PIN_SET);
@@ -253,10 +253,8 @@ void Func_LED1(void const * argument)
   /* Infinite loop */
   for(;;)
   {
-	  osDelay(1000);
-	  HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_RESET);
-	  osDelay(1000);
-	  HAL_GPIO_WritePin(LED1_GPIO_Port,LED1_Pin,GPIO_PIN_SET);
+	  HAL_GPIO_TogglePin(LED1_GPIO_Port, LED1_Pin);
+	  osDelay(500);
   }
   /* USER CODE END Func_LED1 */
 }
